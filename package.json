@@ -1,6 +1,6 @@
 {
   "name": "luogu-user-elo-rating-card",
-  "version": "20230531",
+  "version": "0.1.2",
   "description": "洛谷用户 Elo Rating 卡片",
   "main": "index.js",
   "scripts": {

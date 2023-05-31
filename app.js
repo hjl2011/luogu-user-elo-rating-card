@@ -2,9 +2,10 @@ const fs = require('fs');
 const fetch = require('node-fetch');
 const process = require('process');
 
-var svg_file = fs.createWriteStream("./luogu-elo-rating.svg");
 config = JSON.parse(fs.readFileSync('config.json', 'utf-8'));
 lang = JSON.parse(fs.readFileSync('lang.json', 'utf-8'));
+
+var svg_file = fs.createWriteStream(config.path);
 
 if (config.uid <= 0) {
     console.error("config.uid <= 0");

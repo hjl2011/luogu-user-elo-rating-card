@@ -1,0 +1,20 @@
+{
+    "zh-CN": {
+        "title": "洛谷比赛等级分",
+        "user": "用户",
+        "rating": "等级分",
+        "contest": "评定比赛"
+    },
+    "zh-TW": {
+        "title": "洛谷比賽等級分",
+        "user": "用戶",
+        "rating": "等級分",
+        "contest": "評定比賽"
+    },
+    "en-US": {
+        "title": "Luogu Elo Rating",
+        "user": "User",
+        "rating": "Rating",
+        "contest": "Contest"
+    }
+}

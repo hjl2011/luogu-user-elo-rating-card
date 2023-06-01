@@ -19,10 +19,10 @@ if (!['zh-CN', 'zh-TW', 'en-US'].includes(config.lang)) {
 
 function Date_Format(date) {
     var str = date.getFullYear();
-    if(date.getMonth() < 10) str += `-0${date.getMonth()}`;
-    else str += `-${date.getMonth()}`;
-    if(date.getDay() < 10) str += `-0${date.getDay()}`;
-    else str += `-${date.getDay()}`;
+    if(date.getMonth() + 1 < 10) str += `-0${date.getMonth() + 1}`;
+    else str += `-${date.getMonth() + 1}`;
+    if(date.getDate() < 10) str += `-0${date.getDate()}`;
+    else str += `-${date.getDate()}`;
     if(date.getHours() < 10) str += ` 0${date.getHours()}`;
     else str += ` ${date.getHours()}`;
     if(date.getMinutes() < 10) str += `:0${date.getMinutes()}`;
@@ -36,8 +36,8 @@ function Date_Format(date) {
     var user = await fetch(`https://www.luogu.com.cn/user/${config.uid}`, {
         headers: [["x-luogu-type", "content-only"]]
     }).then(response => response.json()).then(res => res.currentData.user);
-    svg_file.write('<svg width="350" height="175" version="1.1" xmlns="http://www.w3.org/2000/svg" style="cursor:default;user-select:none;">');
-    svg_file.write('<style>rect{fill:#fff;stroke-width:.75px;stroke:#a5a5a5;}.user{fill:#5eb95e;}.rating{fill:#bc10f0;}.contest{fill:#109af0;}.item{fill:#3c5dd8;}</style>');
+    svg_file.write('<svg width="350" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg" style="cursor:default;user-select:none;">');
+    svg_file.write('<style>rect{fill:#fff;stroke-width:.75px;stroke:#a5a5a5;}.user{fill:#5eb95e;}.rating{fill:#bc10f0;}.contest{fill:#109af0;}.time{fill:#ea7a13;}.item{fill:#3c5dd8;}</style>');
     svg_file.write('<rect width="100%" height="100%" rx="6" ry="6" />');
     svg_file.write(`<text x="15" y="30" style="font-size:18px;">${lang[config.lang].title}</text>`);
     svg_file.write(`<text x="15" y="60" class="item">${lang[config.lang].user}</text>`);
@@ -46,6 +46,8 @@ function Date_Format(date) {
     svg_file.write(`<text x="100" y="90" class="rating">${user.elo.rating}</text>`);
     svg_file.write(`<text x="15" y="120" class="item">${lang[config.lang].contest}</text>`);
     svg_file.write(`<text x="100" y="120" class="contest">${user.elo.contest.name}</text>`);
-    svg_file.write(`<text x="${config.lang != 'en-US' ? 100 : 50}" y="150" style="fill: #888;font-size: 14px;">${lang[config.lang].card_generation_time}${Date_Format(new Date())}</text>`);
+    svg_file.write(`<text x="15" y="150" class="item">${lang[config.lang].time}</text>`);
+    svg_file.write(`<text x="100" y="150" class="time">${Date_Format(new Date(user.elo.time * 1000))}</text>`);
+    svg_file.write(`<text x="${config.lang != 'en-US' ? 100 : 50}" y="180" style="fill: #888;font-size: 14px;">${lang[config.lang].card_generation_time}${Date_Format(new Date())}</text>`);
     svg_file.write(`</svg>`);
 })();

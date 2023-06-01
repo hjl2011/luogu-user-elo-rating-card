@@ -11,7 +11,10 @@
 
 1. 将 `config-example.json` 重命名为 `config.json`。
 2. 将 `config.uid` 改为您的洛谷 uid。
-3. 将 `config.lang` 改为您使用的语言。（目前仅支持 `zh-CN`、`zh-TW` 和 `en-US`）
+3. 将 `config.lang` 改为您使用的语言，目前仅支持：
+   - `zh-CN`（简体中文）
+   - `zh-TW`（繁体中文）
+   - `en-US`（英文）
 4. 设置 `config.path` 为您要生成的 SVG 文件的路径。
 5. 运行 `npm install`。
 6. 运行 `npm start`。

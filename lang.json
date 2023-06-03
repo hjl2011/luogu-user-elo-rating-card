@@ -5,6 +5,7 @@
         "rating": "等级分",
         "contest": "评定比赛",
         "time": "生成时间",
+        "historymax": "历史最高",
         "card_generation_time": "卡片生成时间："
     },
     "zh-TW": {
@@ -13,14 +14,7 @@
         "rating": "等級分",
         "contest": "評定比賽",
         "time": "生成時間",
+        "historymax": "歷史最高",
         "card_generation_time": "卡片生成時間："
-    },
-    "en-US": {
-        "title": "Luogu Elo Rating",
-        "user": "User",
-        "rating": "Rating",
-        "contest": "Contest",
-        "time": "Time",
-        "card_generation_time": "Card Generation Time: "
     }
 }

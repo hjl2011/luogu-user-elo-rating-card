@@ -20,6 +20,7 @@
    - `lang`：语言。
    - `path`：SVG 文件路径。
    - `enable-show-history-maxvalue`：是否显示历史最高 Rating。
+   - `darkmode`：使用暗色模式。
 3. 设置 `config.path` 为您要生成的 SVG 文件的路径。
 4. 运行 `npm install`。
 5. 运行 `npm start`。

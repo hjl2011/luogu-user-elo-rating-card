@@ -2,5 +2,6 @@
     "uid": -1,
     "lang": "zh-CN",
     "path": "./rating.svg",
-    "enable-show-history-maxvalue": false
+    "enable-show-history-maxvalue": false,
+    "darkmode": false
 }

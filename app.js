@@ -42,9 +42,10 @@ function Date_Format(date) {
         headers: [["x-luogu-type", "content-only"]]
     }).then(response => response.json()).then(res => res.currentData.user);
     svg_file.write(`<svg width="${Math.max(350, 13 * user.elo.contest.name.length + 40)}" height="${190 + (config['enable-show-history-maxvalue'] ? 30 : 0)}" version="1.1" xmlns="http://www.w3.org/2000/svg" style="cursor:default;user-select:none;">`);
-    svg_file.write('<style>rect{fill:#fff;stroke-width:.75px;stroke:#a5a5a5;}.user{fill:#5eb95e;}.rating{fill:#bc10f0;}.contest{fill:#109af0;}.time{fill:#ea7a13;}.item{fill:#3c5dd8;}</style>');
+    if(!config.darkmode) svg_file.write('<style>rect{fill:#fff;stroke-width:.75px;stroke:#a5a5a5;}.title{font-size:18px;fill:#333;}.user{fill:#5eb95e;}.rating{fill:#bc10f0;}.contest{fill:#109af0;}.time{fill:#ea7a13;}.item{fill:#3c5dd8;}</style>');
+    else svg_file.write('<style>rect{fill:#666;stroke-width:.75px;stroke:#a5a5a5;}.title{font-size:18px;fill:#eee;}.user{fill:#5eb95e;}.rating{fill:#ffe65b;}.contest{fill:#109af0;}.time{fill:#26ea13;}.item{fill:#58ead2;}</style>');
     svg_file.write('<rect width="100%" height="100%" rx="6" ry="6" />');
-    svg_file.write(`<text x="15" y="30" style="font-size:18px;">${lang[config.lang].title}</text>`);
+    svg_file.write(`<text x="15" y="30" class="title">${lang[config.lang].title}</text>`);
     svg_file.write(`<text x="15" y="60" class="item">${lang[config.lang].user}</text>`);
     svg_file.write(`<text x="100" y="60" class="user">${user.name} (${config.uid})</text>`);
     svg_file.write(`<text x="15" y="90" class="item">${lang[config.lang].rating}</text>`);
@@ -64,7 +65,7 @@ function Date_Format(date) {
         svg_file.write(`<text x="15" y="180" class="item">${lang[config.lang].historymax}</text>`);
         svg_file.write(`<text x="100" y="180" class="rating">${maxr}</text>`);
     }
-    svg_file.write(`<text x="${100 + ((13 * user.elo.contest.name.length + 40 - 350) > 0 ? (13 * user.elo.contest.name.length + 40 - 350) : 0)}" y="${175 + (config['enable-show-history-maxvalue'] ? 30 : 0)}" style="fill: #888;font-size: 14px;">${lang[config.lang].card_generation_time}${Date_Format(new Date())}</text>`);
+    svg_file.write(`<text x="${100 + ((13 * user.elo.contest.name.length + 40 - 350) > 0 ? (13 * user.elo.contest.name.length + 40 - 350) : 0)}" y="${175 + (config['enable-show-history-maxvalue'] ? 30 : 0)}" style="fill: ${config.darkmode ? '#eee' : '#999'};font-size: 14px;">${lang[config.lang].card_generation_time}${Date_Format(new Date())}</text>`);
     svg_file.write('</svg>');
     config.time = Date_Format(new Date());
     fs.writeFile('config.json', JSON.stringify(config, null, 4), function (err) {

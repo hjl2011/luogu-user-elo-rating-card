@@ -1,6 +1,6 @@
 ## Commit 消息标准 / Commit Message Standard
 
-1. 标题行仅写版本号，如 `v0.1.2-alpha.1`。
+1. 标题行仅写版本号，如 `v0.1.2-alpha.1`，极小更新写 `<版本号> upd`
 2. 下面的 Message 请按照以下规范
 
 ```plain

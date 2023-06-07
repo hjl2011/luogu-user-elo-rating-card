@@ -3,7 +3,7 @@ description: 反馈 bug
 labels: ['bug | 好像有点问题']
 body:
   - type: textarea
-    id: 描述
+    id: 1
     validations:
       required: true
     attributes:
@@ -13,7 +13,7 @@ body:
       placeholder: |
         (描述)
   - type: textarea
-    id: 复现方式
+    id: 2
     validations:
       required: true
     attributes:

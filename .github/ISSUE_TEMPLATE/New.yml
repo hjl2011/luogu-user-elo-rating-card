@@ -3,7 +3,7 @@ description: 添加新功能
 labels: ['enhancement | 添加新功能']
 body:
   - type: textarea
-    id: 描述
+    id: 1
     validations:
       required: true
     attributes:

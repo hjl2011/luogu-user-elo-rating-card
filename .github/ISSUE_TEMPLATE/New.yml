@@ -1,0 +1,14 @@
+name: 添加新功能
+description: 添加新功能
+labels: ['enhancement | 添加新功能']
+body:
+  - type: textarea
+    id: 描述
+    validations:
+      required: true
+    attributes:
+      label: 描述
+      description: |
+        请描述一下这个功能。
+      placeholder: |
+        (描述)

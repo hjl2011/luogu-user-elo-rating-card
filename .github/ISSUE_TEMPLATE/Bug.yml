@@ -1,0 +1,24 @@
+name: 反馈 bug
+description: 反馈 bug
+labels: ['bug | 好像有点问题']
+body:
+  - type: textarea
+    id: 描述
+    validations:
+      required: true
+    attributes:
+      label: 描述
+      description: |
+        请描述一下这个 bug。
+      placeholder: |
+        (描述)
+  - type: textarea
+    id: 复现方式
+    validations:
+      required: true
+    attributes:
+      label: 复现方式
+      description: |
+        如何复现这个 bug？
+      placeholder: |
+        (复现方式)

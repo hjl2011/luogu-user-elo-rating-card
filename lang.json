@@ -1,6 +1,7 @@
 {
     "zh-CN": {
         "title": "洛谷比赛等级分",
+        "errorinfo": "用户没有参加过任何 Rated 比赛！",
         "user": "用户",
         "rating": "等级分",
         "contest": "评定比赛",
@@ -10,6 +11,7 @@
     },
     "zh-TW": {
         "title": "洛谷比賽等級分",
+        "errorinfo": "用戶沒有參加過任何 Rated 比賽！",
         "user": "用戶",
         "rating": "等級分",
         "contest": "評定比賽",

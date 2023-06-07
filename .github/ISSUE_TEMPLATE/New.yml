@@ -1,5 +1,5 @@
-name: 添加新功能
-description: 添加新功能
+name: 请求添加新功能
+description: Request a feature
 labels: ['enhancement | 添加新功能']
 body:
   - type: textarea

@@ -1,5 +1,5 @@
 name: 反馈 bug
-description: 反馈 bug
+description: Report a bug
 labels: ['bug | 好像有点问题']
 body:
   - type: textarea

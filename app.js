@@ -2,6 +2,14 @@ const fs = require('fs');
 const fetch = require('node-fetch');
 const process = require('process');
 
+color_arr = [];
+color_arr['Gray'] = '#bfbfbf';
+color_arr['Blue'] = '#0e90d2';
+color_arr['Green'] = '#5eb95e';
+color_arr['Orange'] = '#e67e22';
+color_arr['Red'] = '#e74c3c';
+color_arr['Purple'] = '#8e44ad';
+
 config = JSON.parse(fs.readFileSync('config.json', 'utf-8'));
 lang = JSON.parse(fs.readFileSync('lang.json', 'utf-8'));
 
@@ -42,15 +50,15 @@ function Date_Format(date) {
         headers: [["x-luogu-type", "content-only"]]
     }).then(response => response.json()).then(res => res.currentData.user);
     svg_file.write(`<svg width="${null == user.elo ? 300 : Math.max(350, 13 * user.elo.contest.name.length + 40)}" height="${null == user.elo ? 80 : (190 + (config['enable-show-history-maxvalue'] ? 30 : 0))}" version="1.1" xmlns="http://www.w3.org/2000/svg" style="cursor:default;user-select:none;">`);
-    if(!config.darkmode) svg_file.write('<style>rect{fill:#fff;stroke-width:.75px;stroke:#a5a5a5;}.title{font-size:18px;fill:#333;}.user{fill:#5eb95e;}.rating{fill:#bc10f0;}.contest{fill:#109af0;}.time{fill:#ea7a13;}.item{fill:#3c5dd8;}.error{fill:#f01111;}</style>');
-    else svg_file.write('<style>rect{fill:#666;stroke-width:.75px;stroke:#a5a5a5;}.title{font-size:18px;fill:#eee;}.user{fill:#5eb95e;}.rating{fill:#ffe65b;}.contest{fill:#109af0;}.time{fill:#26ea13;}.item{fill:#58ead2;}.error{fill:#f01111;}</style>');
+    if(!config.darkmode) svg_file.write('<style>rect{fill:#fff;stroke-width:.75px;stroke:#a5a5a5;}.title{font-size:18px;fill:#333;}.rating{fill:#bc10f0;}.contest{fill:#109af0;}.time{fill:#ea7a13;}.item{fill:#3c5dd8;}.error{fill:#f01111;}</style>');
+    else svg_file.write('<style>rect{fill:#666;stroke-width:.75px;stroke:#a5a5a5;}.title{font-size:18px;fill:#eee;}.rating{fill:#ffe65b;}.contest{fill:#109af0;}.time{fill:#26ea13;}.item{fill:#58ead2;}.error{fill:#f01111;}</style>');
     svg_file.write('<rect width="100%" height="100%" rx="6" ry="6" />');
     svg_file.write(`<text x="15" y="30" class="title">${lang[config.lang].title}</text>`);
     if(null == user.elo) {
         svg_file.write(`<text x="15" y="60" class="error">${lang[config.lang].errorinfo}</text>`);
     } else {
         svg_file.write(`<text x="15" y="60" class="item">${lang[config.lang].user}</text>`);
-        svg_file.write(`<text x="100" y="60" class="user">${user.name} (${config.uid})</text>`);
+        svg_file.write(`<text x="100" y="60" style="fill:${color_arr[user.color]};">${user.name} (${config.uid})</text>`);
         svg_file.write(`<text x="15" y="90" class="item">${lang[config.lang].rating}</text>`);
         svg_file.write(`<text x="100" y="90" class="rating">${user.elo.rating}</text>`);
         svg_file.write(`<text x="15" y="120" class="item">${lang[config.lang].contest}</text>`);
